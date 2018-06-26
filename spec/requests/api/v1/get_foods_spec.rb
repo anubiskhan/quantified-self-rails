@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'food API' do
-  it 'returns formatted json' do
+  it 'returns JSON of all foods in the db' do
     create(:food)
   end
 end
