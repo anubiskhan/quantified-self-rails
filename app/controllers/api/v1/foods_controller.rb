@@ -18,6 +18,11 @@ class Api::V1::FoodsController < ApplicationController
     food_params.keys.include?('name' || 'calories') ? (food.update(food_params); render json: food) : (render json: {}, status: 400)
   end
 
+  def destroy
+    food = Food.find_by_id(params[:id])
+    food ? (food.destroy; render json: {}, status: 204) : (render json: {}, status: 404)
+  end
+
   private
 
   def food_params
