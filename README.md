@@ -1,24 +1,80 @@
-# README
+# Quantified Self (Rails)
+  This application is an API designed to handle the backend processes of a frontend 'meal and food manager' called [Quantified Self Front End](https://github.com/anubiskhan/quantified-self-fe). The frontend is deployed via GitHub pages, while the backend is hosted on an instance of AWS Elastic Beanstalk.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  It is essentially a collection of endpoints that provide CRUD functionality for Food, and psuedo-CRUD functionality for Meals. (An end user cannot create or destroy meals, but is able to create associations between pre-seeded meals and foods).
 
-Things you may want to cover:
+### Setup
+In order to consume the API, take the following steps:
+  1. Clone down this repository to your local machine
+  ```
+  git clone git@github.com:anubiskhan/quantified-self-rails.git
+  ```
+  and head into the directory
+  ```
+  cd quantified-self-rails/
+  ```
+  2. Run the following on your command line in order to make sure that you'll have all of the necessary gems
+  ```
+  bundle install
+  ```
 
-* Ruby version
+  3. In order to get the database established and seeded run the following on your command line
+  ```
+  rails db:{create,migrate,seed}
+  ```
+  4. Initialize the server by running the following on your command line
+  ```
+  rails s
+  ```
 
-* System dependencies
+### Endpoints
 
-* Configuration
+#### Foods
+```
+GET /api/v1/foods
+```
+Returns all food objects
+```
+GET /api/v1/foods/:id
+```
+Returns the food object with the given :id
+```
+POST /api/v1/foods/
+```
+Creates a new food object
+Returns the food object
+```
+PATCH /api/v1/foods/:id
+```
+Updates the existing food object with the given :id
+Returns the food object
+```
+DELETE /api/v1/foods/:id
+```
+Deletes the existing food object with the given :id
+Returns status 204
 
-* Database creation
+#### Meals
+```
+GET /api/v1/meals
+```
+Returns all meal objects along with associated foods
+```
+GET /api/v1/meals/:meal_id/foods
+```
+Returns the meal of given :meal_id with associated food objects
+```
+POST /api/v1/meals/:meal_id/foods/:id
+```
+Creates a new association between the meal object and food object of the given :meal_id and :id, respectively
+```
+DELETE /api/v1/meals/:meal_id/foods/:id
+```
+Deletes the association between the meal object and food object of the given :meal_id and :id, respectively
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Testing (100% coverage)
+Run
+```
+rspec
+```
+on the command line
