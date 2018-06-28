@@ -1,5 +1,5 @@
 # Quantified Self (Rails)
-  This application is an API designed to handle the backend processes of a frontend 'meal and food manager' called [Quantified Self Front End](https://github.com/anubiskhan/quantified-self-fe). The frontend is deployed via GitHub pages, while the backend is hosted on an instance of AWS Elastic Beanstalk. MY [AWS](https://quantified-self-retry.us-west-2.elasticbeanstalk.com) instance.
+  This application is an API designed to handle the backend processes of a frontend 'meal and food manager' called [Quantified Self Front End](https://github.com/anubiskhan/quantified-self-fe). The frontend is deployed via [Surge](http://neighborly-hammer.surge.sh/), while the backend is hosted on an instance of AWS Elastic Beanstalk. MY [AWS](https://quantified-self-retry.us-west-2.elasticbeanstalk.com) instance.
 
   It is essentially a collection of endpoints that provide CRUD functionality for Food, and psuedo-CRUD functionality for Meals. (An end user cannot create or destroy meals, but is able to create associations between pre-seeded meals and foods).
 
