@@ -17,14 +17,14 @@ describe 'meals API' do
   end
   it 'returns 404 status if meal not found' do
     create(:food, name: 'Pumpkin', calories: 800)
-    get "/api/v1/meals/1/foods/1"
+    post "/api/v1/meals/1/foods/1"
 
     expect(response).to_not be_success
     expect(response.status).to eq(404)
   end
   it 'returns 404 status if food not found' do
     create(:meal, name: 'Breakfast')
-    get "/api/v1/meals/1/foods/1"
+    post "/api/v1/meals/1/foods/1"
 
     expect(response).to_not be_success
     expect(response.status).to eq(404)
