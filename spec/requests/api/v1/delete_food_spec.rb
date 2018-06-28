@@ -10,9 +10,7 @@ describe 'food API' do
     expect(response.status).to eq(204)
   end
   it 'returns 404 status if food fails to delete' do
-    food = create(:food)
-
-    delete "/api/v1/foods/#{food.id}"
+    delete "/api/v1/foods/2"
 
     expect(response).to_not be_success
     expect(response.status).to eq(404)
