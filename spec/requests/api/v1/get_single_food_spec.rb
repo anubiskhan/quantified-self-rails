@@ -19,8 +19,6 @@ describe 'food API' do
   it 'returns 404 status if food not found' do
     get "/api/v1/foods/1"
 
-    food_json = JSON.parse(response.body)
-
     expect(response).to_not be_success
     expect(response.status).to eq(404)
   end
