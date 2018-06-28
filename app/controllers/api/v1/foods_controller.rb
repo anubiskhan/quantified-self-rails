@@ -13,6 +13,11 @@ class Api::V1::FoodsController < ApplicationController
     food.save ? (render json: food) : (render json: {}, status: 400)
   end
 
+  def update
+    food = Food.find_by_id(params[:id])
+    food_params.keys.include?('name' || 'calories') ? (food.update(food_params); render json: food) : (render json: {}, status: 400)
+  end
+
   private
 
   def food_params
