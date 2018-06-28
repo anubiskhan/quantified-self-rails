@@ -4,6 +4,17 @@ class Api::V1::FoodsController < ApplicationController
   end
 
   def show
-    Food.find_by_id(params[:id]) ? (render json: Food.find_by_id(params[:id])) : (render json: {}, status: 404)
+    food = Food.find_by_id(params[:id])
+    food ? (render json: food) : (render json: {}, status: 404)
+  end
+
+  def create
+
+  end
+
+  private
+
+  def food_params
+    params.require(:food).permit(:name, :calories)
   end
 end
