@@ -5,7 +5,7 @@ describe 'food API' do
     food = create(:food)
     updated_food = { "food": { "name": "Garlic", "calories": 8} }
 
-    patch "/api/v1/foods/#{food.id}", params: update_food
+    patch "/api/v1/foods/#{food.id}", params: updated_food
 
     food_json = JSON.parse(response.body)
     expected_json = {
@@ -19,8 +19,8 @@ describe 'food API' do
   end
   it 'returns 404 status if food fails to update' do
     food = create(:food)
-    update_food = { "food": { "name": "Garlic"} }
-    patch "/api/v1/foods/#{food.id}", params: update_food
+    updated_food = { "food": { "game": "Garlic"} }
+    patch "/api/v1/foods/#{food.id}", params: updated_food
 
     expect(response).to_not be_success
     expect(response.status).to eq(400)
