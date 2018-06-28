@@ -11,11 +11,13 @@ describe 'meals API' do
     expected_json = {
       id: meal.id,
       name: 'Breakfast',
-      foods: {
-        id: 1,
-        name: 'Pumpkin',
-        calories: 800
-      }
+      foods: [
+        {
+          id: 1,
+          name: 'Pumpkin',
+          calories: 800
+        }
+      ]
     }
 
     expect(response).to be_success
