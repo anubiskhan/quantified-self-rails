@@ -12,7 +12,8 @@ describe 'food API' do
       name: 'Pumpkin',
       calories: 800
     }
+
     expect(response).to be_success
-    expect(food_json).to eq(expected_json)
+    expect(food_json.to_json).to eq(expected_json.to_json)
   end
 end
