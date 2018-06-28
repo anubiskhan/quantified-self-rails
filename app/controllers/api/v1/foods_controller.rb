@@ -9,7 +9,8 @@ class Api::V1::FoodsController < ApplicationController
   end
 
   def create
-
+    food = Food.new(food_params)
+    food.save ? (render json: food) : (render json: {}, status: 400)
   end
 
   private
