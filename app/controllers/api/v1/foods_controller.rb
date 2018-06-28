@@ -4,6 +4,6 @@ class Api::V1::FoodsController < ApplicationController
   end
 
   def show
-    render json: Food.find(params[:id])
+    Food.find_by_id(params[:id]) ? (render json: Food.find_by_id(params[:id])) : (render json: {}, status: 404)
   end
 end
